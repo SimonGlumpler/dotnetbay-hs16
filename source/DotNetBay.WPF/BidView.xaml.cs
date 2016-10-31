@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
 using DotNetBay.Core;
 using DotNetBay.Data.Entity;
@@ -34,6 +33,7 @@ namespace DotNetBay.WPF
         public void PlaceBidAuction_Click(object sender, RoutedEventArgs e)
         {
             auctionService.PlaceBid(SelectedAuction, YourBid);
+            Close();
         }
 
         public void CloseButton_Click(object sender, RoutedEventArgs e)
