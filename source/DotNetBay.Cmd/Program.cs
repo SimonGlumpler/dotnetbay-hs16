@@ -15,6 +15,8 @@ namespace DotNetBay.Cmd
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "AuctionRunner", Justification = "Reviewed. This is fine here.")]
         public static void Main()
         {
+            var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+
             Console.WriteLine("DotNetBay Commandline");
 
             AuctionRunner auctionRunner = null;

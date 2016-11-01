@@ -25,6 +25,7 @@ namespace DotNetBay.WPF.ViewModel
 
         public MainViewModel(IAuctioneer auctioneer, IAuctionService auctionService)
         {
+            var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
             this.auctionService = auctionService;
             auctions = new ObservableCollection<AuctionViewModel>();
 
