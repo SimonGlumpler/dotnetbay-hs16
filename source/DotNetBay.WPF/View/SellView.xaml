@@ -1,4 +1,4 @@
-﻿<Window x:Class="DotNetBay.WPF.SellView"
+﻿<Window x:Class="DotNetBay.WPF.View.SellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:wpftk="http://schemas.xceed.com/wpf/xaml/toolkit"
@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DotNetBay.WPF"
         mc:Ignorable="d"
+        x:Name="SellViewWindow"
         WindowStyle="ToolWindow"
         Title="SellView" Height="385" Width="567" ResizeMode="NoResize">
     <Grid Margin="10">
@@ -48,12 +49,12 @@
             <wpftk:DateTimePicker Name="AuctionEndDate" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Value="{Binding NewAuction.EndDateTimeUtc}"  Width="240"/>
 
             <TextBox IsReadOnly="True" Grid.Row="5" Grid.Column="1" Margin="0,0,36,0" Text="{Binding FilePathToImage}"/>
-            <Button Click="SelectImageButtonClick" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" Width="30">...</Button>
+            <Button Command="{Binding SelectImage}" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" Width="30">...</Button>
         </Grid>
 
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Padding="5" Margin="5,5,0,5" IsDefault="True" HorizontalAlignment="Left" Click="AddAuctionClick">Add Auction</Button>
-            <Button Padding="5" Margin="5,5,0,5" HorizontalAlignment="Left" Click="CloseButtonClick">Cancel</Button>
+            <Button Padding="5" Margin="5,5,0,5" IsDefault="True" HorizontalAlignment="Left" Command="{Binding AddAuction, Mode=OneWay}" CommandParameter="{Binding ElementName=SellViewWindow}">Add Auction</Button>
+            <Button Padding="5" Margin="5,5,0,5" HorizontalAlignment="Left" Command="{Binding CloseWindow, Mode=OneWay}" CommandParameter="{Binding ElementName=SellViewWindow}">Cancel</Button>
         </StackPanel>
     </Grid>
 </Window>
